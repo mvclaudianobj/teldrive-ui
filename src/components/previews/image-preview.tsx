@@ -11,6 +11,12 @@ interface ImagePreviewProps {
 
 const ImagePreview = ({ name, assetUrl }: ImagePreviewProps) => {
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
+  const [currentUrl, setCurrentUrl] = useState<string>(assetUrl);
+
+  if (currentUrl !== assetUrl) {
+    setIsLoaded(false);
+    setCurrentUrl(assetUrl);
+  }
 
   const handleImageOnLoad = () => {
     setIsLoaded(true);
@@ -22,9 +28,10 @@ const ImagePreview = ({ name, assetUrl }: ImagePreviewProps) => {
         <IconSvgSpinnerTadpole className={clsx(center, "size-8")} />
       )}
       <img
+        key={assetUrl}
         onLoad={handleImageOnLoad}
         className={clsx(
-          "opacity-0  absolute  w-full h-full object-contain transition-opacity duration-300 ease-in-out",
+          "opacity-0 absolute w-full h-full object-contain transition-opacity duration-300 ease-in-out",
           isLoaded && "opacity-100",
         )}
         src={assetUrl}

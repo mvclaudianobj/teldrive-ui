@@ -94,7 +94,10 @@ const ControlButton = ({ type, onPress }: ControlButtonProps) => {
     <Button
       className="data-[hover=true]:bg-zinc-100/hover text-on-surface size-8 min-w-8 px-0"
       variant="text"
-      onPress={onPress}
+      onPointerDown={(e) => {
+        e.preventDefault();
+        onPress();
+      }}
     >
       {type === "next" ? <IconIcRoundNavigateNext /> : <IconIcRoundNavigateBefore />}
     </Button>
@@ -262,7 +265,7 @@ export default memo(function PreviewModal({
                 <Button
                   variant="text"
                   className="data-[hover=true]:bg-zinc-300/hover dark:data-[hover=true]:bg-zinc-500/hover text-inherit"
-                  onPress={handleClose}
+                  onClick={handleClose}
                 >
                   <IconIcRoundArrowBack className="size-6" />
                 </Button>
