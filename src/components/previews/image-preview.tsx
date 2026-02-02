@@ -1,4 +1,4 @@
-import { memo, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import IconSvgSpinnerTadpole from "~icons/svg-spinners/tadpole";
 import clsx from "clsx";
 
@@ -11,12 +11,10 @@ interface ImagePreviewProps {
 
 const ImagePreview = ({ name, assetUrl }: ImagePreviewProps) => {
   const [isLoaded, setIsLoaded] = useState<boolean>(false);
-  const [currentUrl, setCurrentUrl] = useState<string>(assetUrl);
 
-  if (currentUrl !== assetUrl) {
+  useEffect(() => {
     setIsLoaded(false);
-    setCurrentUrl(assetUrl);
-  }
+  }, [assetUrl]);
 
   const handleImageOnLoad = () => {
     setIsLoaded(true);
