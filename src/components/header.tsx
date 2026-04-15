@@ -1,12 +1,12 @@
-import { type ChangeEvent, memo, useCallback, useEffect, useRef, useState } from "react";
 import { useQueryClient } from "@tanstack/react-query";
 import { Link, useNavigate } from "@tanstack/react-router";
 import { Button, Input } from "@tw-material/react";
+import clsx from "clsx";
+import debounce from "lodash.debounce";
+import { type ChangeEvent, memo, useCallback, useEffect, useRef, useState } from "react";
 import IconBiSearch from "~icons/bi/search";
 import MdiFilterOutline from "~icons/mdi/filter-outline";
 import PhTelegramLogoFill from "~icons/ph/telegram-logo-fill";
-import clsx from "clsx";
-import debounce from "lodash.debounce";
 
 import { ProfileDropDown } from "./menus/profile";
 import { SearchMenu } from "./menus/search/search";
@@ -115,7 +115,7 @@ export default memo(function Header({ auth }: { auth?: boolean }) {
           className="flex gap-2 items-center cursor-pointer"
         >
           <PhTelegramLogoFill className="size-6 text-inherit" />
-          <p className="text-headline-small hidden sm:block">Teldrive</p>
+          <p className="text-headline-small hidden sm:block">Marks Drive</p>
         </Link>
       </div>
       <div className="flex-1 flex justify-end items-center gap-4">
