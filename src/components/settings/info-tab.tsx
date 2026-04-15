@@ -1,9 +1,9 @@
 import { $api } from "@/utils/api";
+import { scrollbarClasses } from "@/utils/classes";
+import clsx from "clsx";
 import { memo } from "react";
 import IcRoundDesktopWindows from "~icons/ic/round-desktop-windows";
 import IcRoundDns from "~icons/ic/round-dns";
-import clsx from "clsx";
-import { scrollbarClasses } from "@/utils/classes";
 
 export const InfoTab = memo(() => {
   const { data: version } = $api.useQuery("get", "/version");
@@ -25,7 +25,7 @@ export const InfoTab = memo(() => {
                   <span className="text-base font-semibold">Development</span>
                 ) : (
                   <a
-                    href={`https://github.com/tgdrive/teldrive-ui/commits/${uiVersion}`}
+                    href={`https://github.com/mvclaudianobj/teldrive-ui/commits/${uiVersion}`}
                     rel="noopener noreferrer"
                     target="_blank"
                     className="text-base font-semibold text-primary hover:underline decoration-2 underline-offset-4"
@@ -58,7 +58,7 @@ export const InfoTab = memo(() => {
                     </span>
                     {key === "version" && val ? (
                       <a
-                        href={`https://github.com/tgdrive/teldrive/commits/${val}`}
+                        href={`https://github.com/mvclaudianobj/teldrive/commits/${val}`}
                         rel="noopener noreferrer"
                         target="_blank"
                         className="text-base font-semibold text-primary hover:underline decoration-2 underline-offset-4"
